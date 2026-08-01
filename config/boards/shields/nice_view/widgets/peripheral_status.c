@@ -39,7 +39,7 @@ static void draw_battery_custom(lv_obj_t *canvas, const struct status_state *sta
 
     init_label_dsc(&label_dsc,
                    LVGL_FOREGROUND,
-                   &lv_font_montserrat_16,
+                   &lv_font_montserrat_14,
                    LV_TEXT_ALIGN_LEFT);
 
     snprintf(buf, sizeof(buf), "%d%%", state->battery);
