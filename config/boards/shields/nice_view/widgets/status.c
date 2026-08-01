@@ -62,7 +62,7 @@ static void draw_battery_custom(lv_obj_t *canvas, const struct status_state *sta
     lv_canvas_draw_text(canvas,
                         0,
                         2,
-                        32,
+                        34,
                         &label_dsc,
                         buf);
     
