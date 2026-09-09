@@ -68,7 +68,7 @@ static void draw_central_battery(lv_obj_t *canvas,
 
   snprintf(buf, sizeof(buf), "L:%d%%", state->battery);
 
-  lv_canvas_draw_text(canvas, 0, 2, 38, &label_dsc, buf);
+  lv_canvas_draw_text(canvas, 0, 2, 40, &label_dsc, buf);
 
 //   if (state->charging) {
 //     lv_draw_img_dsc_t img_dsc;
@@ -97,7 +97,7 @@ static void draw_peripheral_battery(lv_obj_t *canvas,
 
   snprintf(buf, sizeof(buf), "R:%d%%", state->peripheral_battery);
 
-  lv_canvas_draw_text(canvas, 0, 22, 38, &label_dsc, buf);
+  lv_canvas_draw_text(canvas, 0, 22, 40, &label_dsc, buf);
 
 //   if (state->peripheral_charging) {
 //     lv_draw_img_dsc_t img_dsc;
@@ -132,7 +132,7 @@ static void draw_central_status(lv_obj_t *canvas, const struct status_state *sta
     break;
   }
 
-  lv_canvas_draw_text(canvas, 38, 0, CANVAS_SIZE, &label_dsc, output_text);
+  lv_canvas_draw_text(canvas, 0, 0, CANVAS_SIZE, &label_dsc, output_text);
 }
 
 static void draw_top(lv_obj_t *widget, lv_color_t cbuf[],
