@@ -68,7 +68,7 @@ static void draw_central_battery(lv_obj_t *canvas,
 
   snprintf(buf, sizeof(buf), "L:%d%%", state->battery);
 
-  lv_canvas_draw_text(canvas, 0, 2, 34, &label_dsc, buf);
+  lv_canvas_draw_text(canvas, 0, 2, 38, &label_dsc, buf);
 
 //   if (state->charging) {
 //     lv_draw_img_dsc_t img_dsc;
@@ -97,7 +97,7 @@ static void draw_peripheral_battery(lv_obj_t *canvas,
 
   snprintf(buf, sizeof(buf), "R:%d%%", state->peripheral_battery);
 
-  lv_canvas_draw_text(canvas, 0, 22, 34, &label_dsc, buf);
+  lv_canvas_draw_text(canvas, 0, 22, 38, &label_dsc, buf);
 
 //   if (state->peripheral_charging) {
 //     lv_draw_img_dsc_t img_dsc;
