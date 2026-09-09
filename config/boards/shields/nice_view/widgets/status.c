@@ -295,7 +295,7 @@ static void set_battery_status(struct zmk_widget_status *widget,
 
 static void set_peripheral_battery_status(struct zmk_widget_status *widget, struct zmk_peripheral_battery_state_changed state) {
     widget->state.peripheral_battery = state.state_of_charge;
-    draw_top(widget->obj, widget_cbuf, &widget->state);
+    draw_top(widget->obj, widget->cbuf, &widget->state);
 }
 
 static void battery_status_update_cb(struct battery_status_state state) {
