@@ -52,14 +52,14 @@ struct wpm_status_state {
 static void draw_central_battery(lv_obj_t *canvas,
                                 const struct status_state *state) {
   
-  lv_draw_rect_dsc_t border_dsc;
-  init_rect_dsc(&border_dsc, LVGL_FOREGROUND);
+//   lv_draw_rect_dsc_t border_dsc;
+//   init_rect_dsc(&border_dsc, LVGL_FOREGROUND);
 
-  border_dsc.bg_opa = LV_OPA_TRANSP;
-  border_dsc.border_width = 1;
-  border_dsc.border_color = LVGL_FOREGROUND;
+//   border_dsc.bg_opa = LV_OPA_TRANSP;
+//   border_dsc.border_width = 1;
+//   border_dsc.border_color = LVGL_FOREGROUND;
 
-  lv_canvas_draw_rect(canvas, 0, 0, 45, 19, &border_dsc);
+//   lv_canvas_draw_rect(canvas, 0, 0, 45, 19, &border_dsc);
     
   lv_draw_label_dsc_t label_dsc;
   init_label_dsc(&label_dsc, LVGL_FOREGROUND, &lv_font_montserrat_12, LV_TEXT_ALIGN_LEFT);
@@ -81,14 +81,14 @@ static void draw_central_battery(lv_obj_t *canvas,
 static void draw_peripheral_battery(lv_obj_t *canvas,
                                 const struct status_state *state) {
   
-  lv_draw_rect_dsc_t border_dsc;
-  init_rect_dsc(&border_dsc, LVGL_FOREGROUND);
+//   lv_draw_rect_dsc_t border_dsc;
+//   init_rect_dsc(&border_dsc, LVGL_FOREGROUND);
 
-  border_dsc.bg_opa = LV_OPA_TRANSP;
-  border_dsc.border_width = 1;
-  border_dsc.border_color = LVGL_FOREGROUND;
+//   border_dsc.bg_opa = LV_OPA_TRANSP;
+//   border_dsc.border_width = 1;
+//   border_dsc.border_color = LVGL_FOREGROUND;
 
-  lv_canvas_draw_rect(canvas, 0, 20, 45, 19, &border_dsc);
+//   lv_canvas_draw_rect(canvas, 0, 20, 45, 19, &border_dsc);
     
   lv_draw_label_dsc_t label_dsc;
   init_label_dsc(&label_dsc, LVGL_FOREGROUND, &lv_font_montserrat_12, LV_TEXT_ALIGN_LEFT);
@@ -132,7 +132,7 @@ static void draw_central_status(lv_obj_t *canvas, const struct status_state *sta
     break;
   }
 
-  lv_canvas_draw_text(canvas, 0, 0, CANVAS_SIZE, &label_dsc, output_text);
+  lv_canvas_draw_text(canvas, 38, 0, CANVAS_SIZE, &label_dsc, output_text);
 }
 
 static void draw_top(lv_obj_t *widget, lv_color_t cbuf[],
