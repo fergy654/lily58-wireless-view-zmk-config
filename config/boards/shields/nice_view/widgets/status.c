@@ -369,7 +369,7 @@ ZMK_SUBSCRIPTION(widget_battery_status, zmk_usb_conn_state_changed);
 #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 
 
-static void set_peripheral_connection_status(struct zmk_widget_satus *widget, struct zmk_split_peripheral_status_changed state) {
+static void set_peripheral_connection_status(struct zmk_widget_status *widget, struct zmk_split_peripheral_status_changed state) {
     widget->state.peripheral_connected = state.connected;
     draw_top(widget->obj, widget->cbuf, &widget->state);
 }
