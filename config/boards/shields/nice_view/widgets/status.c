@@ -52,6 +52,20 @@ static void draw_battery_custom(lv_obj_t *canvas, const struct status_state *sta
     char buf[16];
     lv_draw_label_dsc_t label_dsc;
 
+    lv_draw_rect_dsc_t border_dsc;
+    init_rect_dsc(&border_dsc, LVGL_FOREGROUND);
+
+    border_dsc.bg_opa = LV_OPA_TRANSP;
+    border_dsc.border_width = 1;
+    border_dsc.border_color = LVGL_FOREGROUND;
+
+    lv_canvas_draw_rect(canvas,
+                    0,
+                    0,
+                    45,
+                    19,
+                    &border_dsc);
+
     init_label_dsc(&label_dsc,
                    LVGL_FOREGROUND,
                    &lv_font_montserrat_12,
