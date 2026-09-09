@@ -158,7 +158,7 @@ static void draw_top(lv_obj_t *widget, lv_color_t cbuf[],
   draw_central_battery(canvas, state);
   draw_central_status(canvas, state);
   draw_peripheral_battery(canvas, state);
-  draw_peripheral_status(canvas, state);
+//   draw_peripheral_status(canvas, state);
 
   // Draw WPM
   // lv_canvas_draw_rect(canvas, 0, 21, 68, 42, &rect_white_dsc);
