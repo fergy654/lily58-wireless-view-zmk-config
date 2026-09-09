@@ -17,7 +17,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/endpoints.h>
 #include <zmk/event_manager.h>
 #include <zmk/events/battery_state_changed.h>
-// #include <zmk/events/peripheral_battery_state_changed.h>
+#include <zmk/events/split_peripheral_status_changed.h>
 #include <zmk/events/ble_active_profile_changed.h>
 #include <zmk/events/endpoint_changed.h>
 #include <zmk/events/layer_state_changed.h>
@@ -133,6 +133,22 @@ static void draw_central_status(lv_obj_t *canvas, const struct status_state *sta
   }
 
   lv_canvas_draw_text(canvas, 0, 2, CANVAS_SIZE, &label_dsc, output_text);
+}
+
+static void draw_peripheral_status(lv_obj_t *canvas, const struct status_state *state) {
+
+    lv_draw_label_dsc_t label_dsc;
+    init_label_dsc(&label_dsc, LVGL_FOREGROUND, &lv_font_montserrat_12, LV_ALIGN_TOP_RIGHT);
+
+    char output_text[10] = {};
+
+    if (state->peripheral_connected) {
+        strcat(output_text, LV_SYMBOL_WIFI);
+    } else {
+        strcat(output_text, LV_SYMBOL_CLOSE);
+    }
+
+    lv_canvas_draw_text(canvas, 0, 20, CANVAS_SIZE, &label_dsc, output_text);
 }
 
 static void draw_top(lv_obj_t *widget, lv_color_t cbuf[],
@@ -351,6 +367,30 @@ ZMK_SUBSCRIPTION(peripheral_battery_status, zmk_peripheral_battery_state_changed
 #if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
 ZMK_SUBSCRIPTION(widget_battery_status, zmk_usb_conn_state_changed);
 #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
+
+
+static void set_peripheral_connection_status(struct zmk_widget_satus *widget, struct zmk_split_peripheral_status_changed state) {
+    widget->state.peripheral_connected = state.connected;
+    draw_top(widget->obj, widget->cbuf, &widget->state);
+}
+
+static int peripheral_connection_status_listener(const zmk_event_t *eh) {
+    const struct zmk_split_peripheral_status_changed *ev = as_zmk_split_peripheral_status_changed(eh);
+
+    if(ev == NULL) {
+        return ZMK_EV_EVENT_BUBBLE;
+    }
+
+    struct zmk_widget_status *widget;
+    SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) {
+        set_peripheral_connection_status(widget, *ev);
+    }
+
+    return ZMK_EV_EVENT_BUBBLE;
+}
+
+ZMK_LISTENER(peripheral_connection_status, peripheral_connection_status_listener);
+ZMK_SUBSCRIPTION(peripheral_connection_status, zmk_split_peripheral_status_changed);
 
 static void set_output_status(struct zmk_widget_status *widget,
                               const struct output_status_state *state) {
