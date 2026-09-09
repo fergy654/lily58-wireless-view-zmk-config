@@ -97,7 +97,7 @@ static void draw_peripheral_battery(lv_obj_t *canvas,
 
   snprintf(buf, sizeof(buf), "R:%d%%", state->peripheral_battery);
 
-  lv_canvas_draw_text(canvas, 0, 20, 41, &label_dsc, buf);
+  lv_canvas_draw_text(canvas, 0, 20, 42, &label_dsc, buf);
 
 //   if (state->peripheral_charging) {
 //     lv_draw_img_dsc_t img_dsc;
