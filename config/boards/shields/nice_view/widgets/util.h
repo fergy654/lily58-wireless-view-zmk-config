@@ -20,6 +20,9 @@
 struct status_state {
     uint8_t battery;
     bool charging;
+
+    uint8_t peripheral_battery;
+
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
     struct zmk_endpoint_instance selected_endpoint;
     int active_profile_index;

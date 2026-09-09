@@ -38,8 +38,8 @@ const lv_img_dsc_t bolt = {
     .header.cf = LV_IMG_CF_INDEXED_2BIT,
     .header.always_zero = 0,
     .header.reserved = 0,
-    .header.w = 11,
-    .header.h = 18,
+    .header.w = 8,
+    .header.h = 15,
     .data_size = 70,
     .data = bolt_map,
 };
