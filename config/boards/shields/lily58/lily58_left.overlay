@@ -1,4 +1,6 @@
 #include "lily58.dtsi"
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 &kscan0 {
     col-gpios
@@ -13,4 +15,9 @@
 
 &tps43_listener {
     status = "okay";
+    // Trackpad is mounted rotated 180 deg, so invert both axes for movement and scrolling.
+    input-processors
+        = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
+        , <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
+        ;
 };
