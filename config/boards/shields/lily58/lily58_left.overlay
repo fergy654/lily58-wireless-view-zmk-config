@@ -1,6 +1,4 @@
 #include "lily58.dtsi"
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
 
 &kscan0 {
     col-gpios
@@ -15,10 +13,4 @@
 
 &tps43_listener {
     status = "okay";
-    // As mounted, the trackpad reports its axes swapped and both reversed
-    // (finger right -> cursor up), so swap and invert both for movement and scrolling.
-    input-processors
-        = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
-        , <&zip_scroll_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
-        ;
 };
