@@ -3,8 +3,8 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
-    - name: AYM1607
-      url-base: https://github.com/AYM1607
+    - name: fergy654
+      url-base: https://github.com/fergy654
 
   projects:
     - name: zmk
@@ -13,8 +13,8 @@ manifest:
       import: app/west.yml
 
     - name: zmk-driver-azoteq-iqs5xx
-      remote: AYM1607
-      revision: main
+      remote: fergy654
+      revision: fix-setup-retry
       
   self:
     path: config
