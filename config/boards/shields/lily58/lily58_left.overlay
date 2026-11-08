@@ -15,9 +15,9 @@
 
 &tps43_listener {
     status = "okay";
-    // Trackpad is mounted rotated 180 deg, so invert both axes for movement and scrolling.
+    // As mounted, the trackpad reports X mirrored, so invert X for movement and scrolling.
     input-processors
-        = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
-        , <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
+        = <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>
+        , <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>
         ;
 };
