@@ -34,6 +34,8 @@
         natural-scroll-y;
         natural-scroll-x;
 
+        zoom;
+
         bottom-beta = <5>;
         stationary-threshold = <5>;
         switch-xy;
